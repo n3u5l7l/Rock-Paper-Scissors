@@ -29,7 +29,7 @@ function game()
         const computerChoice = computerPlay();
         let player = prompt("Rock, Paper or Scissors?", "Rock");
         player = player.toLowerCase();
-        
+        if (player !== "rock" && player !== "paper" && player !== "scissors"){alert("Please enter rock, paper or scissors");i--;continue;}
         if (computerChoice.toLowerCase() === player){console.log("A Tie.");continue;}
         else if (computerChoice === "Rock" && player === "paper"){console.log("Player win.");playerWin++;}
         else if (computerChoice === "Paper" && player === "scissors"){console.log("Player win.");playerWin++;}
