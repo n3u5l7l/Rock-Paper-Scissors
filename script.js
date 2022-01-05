@@ -20,25 +20,25 @@ function play(computer, player)
     else{return "Computer Wins!";}
 }
 
-function game(player)
+function game()
 {
     let playerWin = 0;
     let computerWin = 0;
-    player = player.toLowerCase();
     for (let i = 0; i < 5; i++)
     {
-        let computerChoice = computerPlay();
-        if (computerChoice.toLowerCase() === player){continue;}
-        else if (computerChoice === "Rock" && player === "paper"){playerWin++;}
-        else if (computerChoice === "Paper" && player === "scissors"){playerWin++;}
-        else if (computerChoice === "Scissors" && player === "rock"){playerWin++;}
-        else{computerWin++;}
+        const computerChoice = computerPlay();
+        let player = prompt("Rock, Paper or Scissors?", "Rock");
+        player = player.toLowerCase();
+        
+        if (computerChoice.toLowerCase() === player){console.log("A Tie.");continue;}
+        else if (computerChoice === "Rock" && player === "paper"){console.log("Player win.");playerWin++;}
+        else if (computerChoice === "Paper" && player === "scissors"){console.log("Player win.");playerWin++;}
+        else if (computerChoice === "Scissors" && player === "rock"){console.log("Player win.");playerWin++;}
+        else{console.log("Computer win.");computerWin++;}
     }
     if(computerWin==playerWin){return "Tie!";}
-    else if (computerWin > playerWin){return "Computer Wins!";}
-    else{return "Player Wins!";}
+    else if (computerWin > playerWin){return "Computer is the final winner!";}
+    else{return "Player is the final winner!";}
 }
 
-const playerSelection = "rock";
-const computerSelection = computerPlay();
-console.log(game(playerSelection));
+console.log(game());
