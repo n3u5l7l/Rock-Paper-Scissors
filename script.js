@@ -83,7 +83,7 @@ function playGame(e)
     else
     {
         computerWin++;
-        cscores.textContent=computerWin;
+        cscores.textContent = computerWin;
     }
 }
 
