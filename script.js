@@ -19,7 +19,7 @@ function play(computer, player)
     else if (computer === "Scissors" && player === "rock"){return "Player Wins!";}
     else{return "Computer Wins!";}
 }
-
+/* Looping the game 5 times using prompt/console
 function game()
 {
     let playerWin = 0;
@@ -42,6 +42,51 @@ function game()
     if(computerWin==playerWin){return "Tie!";}
     else if (computerWin > playerWin){return "Computer is the final winner!";}
     else{return "Player is the final winner!";}
+}*/
+let playerWin = 0;
+let computerWin = 0;
+
+function playGame(e)
+{
+    const pscores = document.querySelector(".plscore");
+    const cscores = document.querySelector(".cscore");
+    if (playerWin===5)
+    {
+        alert("Player Wins!");
+        return;
+    }
+    else if (computerWin===5)
+    {
+        alert("Computer Wins!");
+        return;
+    }
+
+    if (this.classList.value===computerPlay().toLowerCase())
+    {
+        alert("Tie!");
+    }
+    else if(this.classList.value==="rock" && computerPlay()==="Scissors")
+    {
+        playerWin++;
+        pscores.textContent = playerWin;
+    }
+    else if (this.classList.value==="paper" && computerPlay()==="Rock")
+    {
+        playerWin++;
+        pscores.textContent = playerWin;
+    }
+    else if (this.classList.value==="scissors" && computerPlay()==="Paper")
+    {
+        playerWin++;
+        pscores.textContent = playerWin;
+    }
+    else
+    {
+        computerWin++;
+        cscores.textContent=computerWin;
+    }
 }
 
-console.log(game());
+
+const bts = document.querySelectorAll("button");
+bts.forEach(buttons=>buttons.addEventListener('click', playGame));
